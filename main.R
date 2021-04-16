@@ -4,9 +4,10 @@ library(dplyr)
 df <- (ctx = tercenCtx())  %>% 
   select(.y, .ri) %>%
   mutate(predicted = ctx$select(ctx$colors[[1]])[[1]]) %>%
-  mutate(true = ctx$rselect()[[1]][.$.ri + 1])
+  mutate(truth = ctx$select(ctx$labels[[1]])[[1]])
 
-mat <- table(df$predicted, df$true)
+lev <- union(df$predicted, df$truth)
+mat <- table(factor(df$predicted, levels = lev), factor(df$truth, levels = lev))
 
 precision <- diag(mat) / rowSums(mat)
 recall <- diag(mat) / colSums(mat)
@@ -28,4 +29,4 @@ result = OperatorResult$new()
 result$tables = list(table)
 result$joinOperators = list(join)
 
-ctx$save(result)
+ctx$save(result) 

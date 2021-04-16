@@ -1,4 +1,4 @@
-# TClassification metrics operator
+# Classification metrics operator
 
 ##### Description
 
@@ -8,8 +8,8 @@ This operator returns precision, recall and F1-score of a classification.
 
 Input projection|.
 ---|---
-`y-axis`        | numeric, measurement
-`row`           | character, true label 
+`y-axis`        | numeric, measurement, per cell
+`labels`           | character, true label 
 `colors`        | character, predicted label 
 
 Output relations|.

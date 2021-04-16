@@ -1,8 +1,8 @@
 library(tercen)
 library(dplyr)
 
-options("tercen.workflowId" = "968e828a2d8eb509f7ccd060700068fe")
-options("tercen.stepId"     = "c45ed612-7847-46d5-ac55-cc2f1f2c0a02")
+options("tercen.workflowId" = "7b9fc17ffad7902a066fc1f4cf01393d")
+options("tercen.stepId"     = "528ddb1c-800f-4751-9605-2bdb6e02c5ab")
 
 getOption("tercen.workflowId")
 getOption("tercen.stepId")
@@ -10,9 +10,10 @@ getOption("tercen.stepId")
 df <- (ctx = tercenCtx())  %>% 
   select(.y, .ri) %>%
   mutate(predicted = ctx$select(ctx$colors[[1]])[[1]]) %>%
-  mutate(true = ctx$rselect()[[1]][.$.ri + 1])
+  mutate(truth = ctx$select(ctx$labels[[1]])[[1]])
 
-mat <- table(df$predicted, df$true)
+lev <- union(df$predicted, df$truth)
+mat <- table(factor(df$predicted, levels = lev), factor(df$truth, levels = lev))
 
 precision <- diag(mat) / rowSums(mat)
 recall <- diag(mat) / colSums(mat)
