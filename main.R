@@ -1,10 +1,6 @@
 library(tercen)
 library(dplyr)
 
-#library(tim)
-#options("tercen.workflowId" = "6015a4dd34cef273755e1a1b1500427b")
-#options("tercen.stepId"     = "c51e5178-b2ae-4bda-80c5-ab8ed2c1edff")
-
 ctx <- tercenCtx()
 
 df <- ctx  %>% 
@@ -47,4 +43,3 @@ df.out<-df %>%
 
 ctx$save(df.out)
 
-#tim::build_test_data(res_table = df.out, ctx = ctx, test_name = "test1")
