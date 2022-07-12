@@ -19,23 +19,31 @@ precision <- diag(mat) / rowSums(mat)
 recall <- diag(mat) / colSums(mat)
 f1 <- 2*precision*recall / (precision+recall)
 
-df<- data.frame(label = names(precision), precision, recall, f1) 
-df_out<-ctx$addNamespace(df)
+df_tmp<- data.frame(label = names(precision), precision, recall, f1) 
+#df_out<-ctx$addNamespace(df_tmp)
 
-table = tercen::dataframe.as.table(df_out) 
-table$properties$name = 'value'
-table$columns[[1]]$type = 'double'
+# table = tercen::dataframe.as.table(df_tmp) 
+# table$properties$name = 'value'
+# table$columns[[1]]$type = 'double'
+# 
+# relation = SimpleRelation$new()
+# relation$id = table$properties$name
+# 
+# join = JoinOperator$new()
+# join$rightRelation = relation
+# 
+# result = OperatorResult$new()
+# result$tables = list(table)
+# result$joinOperators = list(join)
 
-relation = SimpleRelation$new()
-relation$id = table$properties$name
+df.out<-merge(df ,
+               df_tmp,
+               by.x = "truth",
+               by.y = "label",
+               all.x = TRUE) %>%
+  ctx$addNamespace()
 
-join = JoinOperator$new()
-join$rightRelation = relation
 
-result = OperatorResult$new()
-result$tables = list(table)
-result$joinOperators = list(join)
+ctx$save(df.out)
 
-ctx$save(result)
-
-#tim::build_test_data(res_table = df_out, ctx = ctx, test_name = "test1")
+#tim::build_test_data(res_table = df.out, ctx = ctx, test_name = "test1")
