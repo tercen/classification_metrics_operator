@@ -36,8 +36,9 @@ df_tmp<- data.frame(label = names(precision), precision, recall, f1)
 # result$tables = list(table)
 # result$joinOperators = list(join)
 
-df.out<-merge(df ,
-               df_tmp,
+df.out<-df %>%
+  select(-.y) %>%
+  merge(. ,df_tmp,
                by.x = "truth",
                by.y = "label",
                all.x = TRUE) %>%
