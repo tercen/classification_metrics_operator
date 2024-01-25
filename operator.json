@@ -1,9 +1,13 @@
 {
   "name": "Classification metrics",
   "description": "Returns precision, recall and F1-score of a classification",
-  "tags": ["clustering"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/classification_metrics_operator"]
+  "tags": [
+    "clustering"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/classification_metrics_operator"
+  ]
 }
-
-
