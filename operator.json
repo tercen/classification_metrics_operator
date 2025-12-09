@@ -22,22 +22,22 @@
         "metaFactors": [
           {
             "kind": "MetaFactor",
-            "name": "True label",
+            "name": "Row",
             "type": "",
-            "description": "True labels",
-            "ontologyMapping": "variable",
+            "description": "Optional row factor",
+            "ontologyMapping": "row",
             "crosstabMapping": "row",
-            "cardinality": "1..n",
+            "cardinality": "0..n",
             "factors": []
           },
           {
             "kind": "MetaFactor",
-            "name": "Predicted label",
+            "name": "Column",
             "type": "",
-            "description": "Predicted labels",
-            "ontologyMapping": "observation",
+            "description": "Optional column factor",
+            "ontologyMapping": "column",
             "crosstabMapping": "column",
-            "cardinality": "1..n",
+            "cardinality": "0..n",
             "factors": []
           }
         ],
@@ -49,9 +49,39 @@
                 "kind": "MetaFactor",
                 "name": "Measurement",
                 "type": "numeric",
-                "description": "Measurement values (counts per cell).",
+                "description": "Measurement values (per cell).",
                 "ontologyMapping": "measurement",
                 "crosstabMapping": "y",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
+          },
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Predicted label",
+                "type": "string",
+                "description": "Predicted labels (classification output)",
+                "ontologyMapping": "factor",
+                "crosstabMapping": "color",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
+          },
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "True label",
+                "type": "string",
+                "description": "True/ground truth labels",
+                "ontologyMapping": "factor",
+                "crosstabMapping": "label",
                 "cardinality": "1",
                 "factors": []
               }
