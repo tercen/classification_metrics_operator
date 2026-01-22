@@ -1,24 +1,48 @@
 {
-  "outputSpecs": [{
-    "kind": "OperatorJoinSpec",
-    "joinOperators": [{
-      "kind": "JoinOperator",
-      "joinType": "left",
-      "leftPair": {
-        "kind": "ColumnPair",
-        "lColumns": [],
-        "rColumns": []
-      },
-      "rightRelation": {
-        "kind": "TableRelation",
-        "attributes": [
-          {"kind": "Attribute", "name": "predicted", "type": "string"},
-          {"kind": "Attribute", "name": "truth", "type": "string"},
-          {"kind": "Attribute", "name": "precision", "type": "double"},
-          {"kind": "Attribute", "name": "recall", "type": "double"},
-          {"kind": "Attribute", "name": "f1", "type": "double"}
-        ]
-      }
-    }]
-  }]
+  "outputSpecsV2": [
+    {
+      "kind": "OperatorJoinSpec",
+      "joinOperators": [
+        {
+          "kind": "JoinOperator",
+          "joinType": "left",
+          "leftPair": {
+            "kind": "ColumnPair",
+            "lColumns": [],
+            "rColumns": []
+          },
+          "rightRelation": {
+            "kind": "TableRelation",
+            "attributes": [
+              {
+                "kind": "Attribute",
+                "name": "predicted",
+                "type": "string"
+              },
+              {
+                "kind": "Attribute",
+                "name": "truth",
+                "type": "string"
+              },
+              {
+                "kind": "Attribute",
+                "name": "precision",
+                "type": "double"
+              },
+              {
+                "kind": "Attribute",
+                "name": "recall",
+                "type": "double"
+              },
+              {
+                "kind": "Attribute",
+                "name": "f1",
+                "type": "double"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }
