@@ -25,7 +25,7 @@
             "name": "Row",
             "type": "",
             "description": "Optional row factor",
-            "ontologyMapping": "row",
+            "ontologyMapping": "variable",
             "crosstabMapping": "row",
             "cardinality": "0..n",
             "factors": []
@@ -35,7 +35,7 @@
             "name": "Column",
             "type": "",
             "description": "Optional column factor",
-            "ontologyMapping": "column",
+            "ontologyMapping": "observation",
             "crosstabMapping": "column",
             "cardinality": "0..n",
             "factors": []
@@ -65,7 +65,7 @@
                 "name": "Predicted label",
                 "type": "string",
                 "description": "Predicted labels (classification output)",
-                "ontologyMapping": "factor",
+                "ontologyMapping": "group",
                 "crosstabMapping": "color",
                 "cardinality": "1",
                 "factors": []
@@ -80,7 +80,7 @@
                 "name": "True label",
                 "type": "string",
                 "description": "True/ground truth labels",
-                "ontologyMapping": "factor",
+                "ontologyMapping": "group",
                 "crosstabMapping": "label",
                 "cardinality": "1",
                 "factors": []
